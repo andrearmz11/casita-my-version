@@ -9,11 +9,33 @@
 // 4. DEFAULT_TABS drives which tabs are visible; manager can override per-client via SettingsTab
 
 import { useState, useEffect } from "react";
+
+// Screens / layouts
+import LoginScreen from "./LoginScreen";
+import AppHeader from "./AppHeader";
+import ClientLayout from "./ClientLayout";
+import ManagerDash from "./ManagerDash";
+import PortalGrid from "./PortalGrid";
+import SponsorTracker from "./SponsorTracker";
+import WelcomeModal from "./WelcomeModal";
+
+// Data access layer
+import { db } from "./data/db";
+
+// Static configuration
+import { ROLES, DEFAULT_TABS, JOURNEY_STEPS } from "./data/constants";
+
+// Default / seed data
 import {
-  db, CLIENTS_DEFAULT, CREATORS_DEFAULT, AMBASSADORS_DEFAULT,
-  EVENTS_DEFAULT, KEY_DATES_DEFAULT, PW_DEFAULT, ROLES, DEFAULT_TABS,
-  isSocial, isOwn, isSponsor, clientSuggestions, todayStr, getWkDates,
-} from "./data";
+  CLIENTS_DEFAULT,
+  CREATORS_DEFAULT,
+  AMBASSADORS_DEFAULT,
+  EVENTS_DEFAULT,
+  KEY_DATES_DEFAULT,
+  PW_DEFAULT,
+} from "./data/defaults";
+
+
 
 // ── State initialization ──────────────────────────────────────────────────
 export default function App() {
